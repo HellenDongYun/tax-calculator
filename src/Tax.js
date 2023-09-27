@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function Tax() {
   const [income, setIncome] = useState("");
   let tax;
+
   const calculateTax = () => {
     const incomeAmount = +income;
 
@@ -23,21 +24,20 @@ export default function Tax() {
     setIncome(e.target.value);
   };
 
-  calculateTax();
+  calculateTax(); // Calculate tax on initial render
 
   return (
-    <main className="container">
-      <div className="box">
-        <h2>The Income:</h2>
+    <main>
+      <div>
+        <h4>Income:</h4>
         <input
-          type="number"
+          type="number" // Use type="number" for numerical input
           value={income}
           onChange={handleOnChange}
-          placeholder="input your income"
-          className="right"
+          placeholder="Please input your salary"
         />
       </div>
-      <h2 className="tax">The income tax is: $ {tax.toFixed(2)}</h2>
+      <h2>The tax is: {tax.toFixed(2)}</h2>
     </main>
   );
 }
